@@ -1,0 +1,1045 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Benjamin Boateng | 3D Artist</title>
+  
+  <!-- Favicon Links -->
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="icon" type="images" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="icon" type="images/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="images/png" sizes="48x48" href="/favicon-48x48.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: #111;
+      color: #fff;
+      scroll-behavior: smooth;
+      overflow-x: hidden;
+    }
+
+    
+    /* Navbar */
+    nav {
+      background: #000;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      transition: background 0.3s ease;
+    }
+    .logo {
+      font-size: 1.7rem;
+      font-weight: 600;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 2rem;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+      padding: 0.3rem 0.6rem; /* Add padding for background space */
+      transition: background-color 0.3s ease, color 0.3s ease;
+      border-radius: 4px; /* Optional: Rounded corners */
+    }
+
+    nav ul li a:hover {
+      background-color: #ffcc00;
+      color: rgb(0, 0, 0); /* Optional: improve readability on yellow */
+    }
+
+    
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      gap: 5px;
+    }
+    .hamburger div {
+      width: 25px;
+      height: 3px;
+      background: white;
+      transition: all 0.3s ease;
+    }
+
+    /* Hero Section */
+  .hero {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start; /* stay aligned left */
+    padding-left: 5%;
+  }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.4);
+      z-index: 1;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+
+      max-width: 550px;
+      color: white;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      /* background: rgba(0, 0, 0, 0.2); Black with slight transparency */
+      padding: 2rem;
+      border-radius: 10px; /* Optional: rounded corners */
+    }
+    .hero-content .main-title {
+      font-size: 38px;
+      font-weight: 600;
+      margin-bottom: 4rem;
+       /* Bright yellow for emphasis */
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    } 
+    .hero-content h1 {
+      font-size: 3.0rem;
+      font-weight: 600;
+      font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+      margin-bottom: 0.7rem;
+      line-height: 1.2;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      
+    }
+
+    .hero-content p {
+      font-size: 1.0rem;
+      margin-bottom: 2rem;
+      line-height: 1.6;
+      opacity: 0.9;
+    }
+
+    .cta-button {
+      display: inline-block;
+      background: #ffcc00;
+      color: #000;
+      padding: 1rem 2rem;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1.1rem;
+      transition: all 0.3s ease;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .cta-button:hover {
+      /* background:#faf2d0; */
+      transform: translateY(-2px);
+      box-shadow: 0 10px 20px rgba(255, 204, 0, 0.3);
+    }
+    
+    /* Dropping Texts Animation */
+    .dropping-texts {
+        display: inline-block;
+       position: relative;
+        }
+
+  .dropping-texts {
+  display: inline-block;
+  width: auto;
+  position: relative;
+}
+
+.dropping-texts div {
+  position: absolute;
+  top: 0;
+  left: -5rem;
+  margin-top: 3rem;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center; /* or center if you want centered text */
+  color: #ffcc00;
+  font-size: 35px;
+  white-space: nowrap;
+  opacity: 0;
+  transform: translateX(50px);
+  animation: slideRotate 16s infinite;
+}
+
+        .dropping-texts div:nth-child(1) {
+            animation-delay: 0s;
+        }
+
+        .dropping-texts div:nth-child(2) {
+            animation-delay: 4s;
+        }
+
+        .dropping-texts div:nth-child(3) {
+            animation-delay: 8s;
+        }
+
+        .dropping-texts div:nth-child(4) {
+            animation-delay: 12s;
+        }
+
+        @keyframes slideRotate {
+            0% {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+            6.25% {
+                opacity: 1;
+                transform: translateX(0);
+            }
+            18.75% {
+                opacity: 1;
+                transform: translateX(0);
+            }
+            25% {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+            100% {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+        }
+
+    .scroll-indicator {
+      position: absolute;
+      bottom: 2rem;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 2;
+      color: white;
+      font-size: 2rem;
+      animation: bounce 2s infinite;
+    }
+    .scroll-indicator i a{
+      text-decoration: none;
+      color: inherit;
+    }
+
+    @keyframes bounce {
+      0%, 20%, 50%, 80%, 100% {
+        transform: translateX(-50%) translateY(0);
+      }
+      40% {
+        transform: translateX(-50%) translateY(-10px);
+      }
+      60% {
+        transform: translateX(-50%) translateY(-5px);
+      }
+    }
+
+    @media (max-width: 767px) {
+      .hero {
+        padding-left: 2rem;
+        padding-right: 2rem;
+        text-align: center;
+        justify-content: center;
+      }
+      .hero-content {
+        padding: 1rem;
+        margin-right: 40px;
+      } 
+      .hero-content .dropping-texts .ArchViz {
+        font-size: 30px;
+        /* color: red; */
+      }
+
+      .hero-content h1 {
+        font-size: 2.5rem;
+      }
+
+      .hero-content p {
+        font-size: 1rem;
+      }
+      .hero .scroll-indicator {
+        /* center the scroll indicator */
+        left: 45%;    
+        transform: translateX(-50%);  
+  }
+    }
+
+     /* Resume Section */
+     .resume-header{
+        text-align:center; 
+        color:#ffcc00; 
+        margin-bottom:0.5rem;
+        margin-top: 10%;
+        font-size: 1.2rem;
+     }
+     .resume {
+      background-color: #111;
+      color: white;
+      font-family: Arial, sans-serif;
+      padding: 40px;
+      display: flex;
+      gap: 60px;
+      flex-wrap: wrap;
+      justify-content: center;
+    
+    }
+
+    .resume .left-image {
+      flex-shrink: 0;
+    }
+
+    .resume .left-image img {
+      width: 300px;
+      height: 300px;
+      border-radius: 50%;
+      box-shadow: 0 4px 12px rgba(255, 204, 0, 0.2);
+      transition: transform 0.3s ease;
+      object-fit: cover;
+      
+    }
+    
+    .resume .left-image img:hover {
+      transform: scale(1.01);
+    }
+
+    .resume .content {
+      flex-grow: 1;
+      min-width: 300px;
+      max-width: 800px;
+    }
+
+    .resume .name {
+      font-size: 28px;
+      font-weight: bold;
+      margin-bottom: 40px;
+    }
+
+    .resume .section-row {
+      display: flex;
+      gap: 40px;
+      margin-bottom: 40px;
+      flex-wrap: wrap;
+    }
+
+    .resume .column {
+      flex: 1;
+      min-width: 240px;
+    }
+
+    .resume .v-divider {
+      width: 2px;
+      background-color: #444;
+    }
+
+    .resume .h-divider {
+      height: 2px;
+      background-color: #444;
+      margin: 40px 0;
+    }
+
+    .resume h2 {
+      font-size: 22px;
+      margin-bottom: 16px;
+    }
+
+    .resume ul {
+      list-style: disc;
+      padding-left: 20px;
+      margin: 0;
+    }
+
+    .resume li {
+      margin-bottom: 12px;
+      font-size: 18px;
+      line-height: 1.4;
+    }
+    /* End of Resume Section */
+
+    /* Portfolio Section with Sliding Overlay */
+    .portfolio {
+      padding: 4rem 2rem;
+      text-align: center;
+    }
+
+    .portfolio h2 {
+      margin-bottom: 2rem;
+      font-size: 2rem;
+      color: #ffcc00;
+    }
+
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 4px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .portfolio-item {
+      position: relative;
+      aspect-ratio: 1 / 1;
+      overflow: hidden;
+      cursor: pointer;
+    }
+
+    .portfolio-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s ease;
+      position: relative;
+      z-index: 1;
+      transform: translateY(0);
+    }
+
+    .portfolio-item:hover img {
+      transform: translateY(100%);
+    }
+
+    /* Sliding White Overlay */
+    .portfolio-item .overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(255, 255, 255, 0.95);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 1rem;
+      box-sizing: border-box;
+      transform: translateY(-100%);
+      transition: transform 0.4s ease;
+      z-index: 2;
+    }
+
+    .portfolio-item:hover .overlay {
+      transform: translateY(0);
+    }
+
+    .overlay h3 {
+      color: #333;
+      font-size: 1.2rem;
+      font-weight: 600;
+      margin: 0 0 0.5rem 0;
+      line-height: 1.3;
+    }
+
+    .overlay p {
+      color: #666;
+      font-size: 0.9rem;
+      margin: 0 0 1rem 0;
+      line-height: 1.4;
+    }
+
+    .overlay .meta {
+      color: #888;
+      font-size: 0.8rem;
+      font-weight: 500;
+    }
+
+    .overlay-icons {
+      margin-top: 1rem;
+      display: flex;
+      gap: 1rem;
+    }
+
+    .overlay-icons i {
+      color: #ffcc00;
+      font-size: 1.5rem;
+      transition: transform 0.2s ease;
+    }
+
+    .overlay-icons i:hover {
+      transform: scale(1.2);
+    }
+
+    /* Lightbox / Modal */
+    .lightbox {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.9);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 2000;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+
+    .lightbox.active {
+      opacity: 1;
+      pointer-events: all;
+    }
+
+    .lightbox-content {
+      display: flex;
+      width: 90%;
+      max-width: 1200px;
+      height: 80vh;
+      background: #111;
+      border-radius: 4px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .lightbox-image {
+      flex: 2;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #000;
+    }
+
+    .lightbox-image img {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+    }
+
+    .lightbox-details {
+      flex: 1;
+      padding: 2rem;
+      overflow-y: auto;
+      border-left: 1px solid #333;
+    }
+
+    .lightbox-close {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      font-size: 1.5rem;
+      color: white;
+      background: none;
+      border: none;
+      cursor: pointer;
+    }
+
+    .lightbox-nav {
+      position: absolute;
+      top: 50%;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      padding: 0 2rem;
+      transform: translateY(-50%);
+      z-index: 10;
+    }
+
+    .lightbox-nav button {
+       background: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
+    }
+
+    .lightbox-nav button:hover {
+      background: rgba(255, 204, 0, 0.7);
+    }
+    /* Responsive Styles */
+    @media (max-width: 767px) {
+
+      
+      .portfolio-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      
+      .lightbox-content {
+        flex-direction: column;
+        height: 90vh;
+      }
+      
+      .lightbox-image {
+        height: 60%;
+      }
+      
+      .lightbox-details {
+        border-left: none;
+        border-top: 1px solid #333;
+      }
+
+      .overlay h3 {
+        font-size: 1rem;
+      }
+
+      .overlay p {
+        font-size: 0.8rem;
+      }
+
+      .overlay .meta {
+        font-size: 0.7rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .portfolio-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* Footer */
+    footer {
+      background: #000;
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+
+    footer a {
+      color: #fff;
+      font-size: 1.5rem;
+      text-decoration: none;
+      transition: background-color 0.3s ease, color 0.3s ease;
+      border-radius: 50%;
+      padding: 0.75rem;
+      background: rgba(255, 204, 0, 0.1);
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      width: 2rem;
+      height: 2rem;
+    }
+
+    footer p {
+      margin-top: 1rem;
+      color: #fff;
+      font-size: 1rem;
+    }
+
+    footer a:hover {
+      background: #ffcc00;
+      transform: scale(1.2);
+    }
+    
+    /* Responsive Navigation */
+    @media (max-width: 768px) {
+      .hamburger {
+        display: flex;
+      }
+      
+      nav ul {
+        position: absolute;
+        top: 100%;
+        right: 0;
+        flex-direction: column;
+        background: #000;
+        width: 100%;
+        text-align: center;
+        transform: translateY(-10px);
+        opacity: 0;
+        pointer-events: none;
+        transition: all 0.3s ease;
+        padding: 1rem 0;
+      }
+      
+      nav ul.active {
+        opacity: 1;
+        pointer-events: all;
+        transform: translateY(0);
+      }
+      
+      nav ul li {
+        margin: 1rem 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="logo">Benjamin Boateng</div>
+    <ul id="nav-links">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#resume-header">About</a></li>
+      <li><a href="#portfolio">Portfolio</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <div class="hamburger" id="hamburger">
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero" id="home">
+    <div class="hero-content">
+          <h1 class="main-title"><span class="static-text">I Am A</span> <span class="dropping-texts">
+          <div>3D Designer</div>
+          <div>3D Interior <br>Designer</div>
+          <div class="ArchViz">3D Architectural<br> Visualizer</div>
+          <div>3D Environment <br>Artist</div>
+        </span>
+      </h1>
+      <p>Creating stunning 3D visualizations, architectural and interior renders, and immersive digital experiences that bring ideas to life.</p>
+      <a href="#portfolio" class="cta-button">View My Work</a>
+    </div>
+    <div class="scroll-indicator">
+      <i> <a href="#resume-header" class="fas fa-chevron-down" ></a></i>
+    </div>
+  </section>
+ 
+  <section>
+      <div class="resume-header" id="resume-header">
+        <h2>Resume</h2>     
+      </div>
+    <div class="resume" id="resume">
+      <!-- Left-side Image -->
+      <div class="left-image">
+        <img src="/images/about_me_ben.jpg" alt="Logo" />
+      </div>
+  
+      <!-- Right Content -->
+      <div class="content">
+        <!-- Top Row: Experience and Education -->
+        <div class="section-row">
+          <div class="column">
+            <h2>EXPERIENCE</h2>
+            <ul>
+              <li>Freelance 3D Artist | Beneviz Design | 2023 – Present</li>
+              <li>3D Generalist | Freelance | 2020 – 2024</li>
+            </ul>
+          </div>
+  
+          <div class="v-divider"></div>
+  
+          <div class="column">
+            <h2>EDUCATION</h2>
+            <ul>
+              <li>Bachelor's degree in Integrated Art and Industry, KNUST </li>
+              <li></li>
+            </ul>
+          </div>
+        </div>
+  
+        <!-- Horizontal Divider -->
+        <div class="h-divider"></div>
+  
+        <!-- Bottom Row: Skills and Softwares -->
+        <div class="section-row">
+          <div class="column">
+            <h2>SKILLS</h2>
+            <ul>
+              <li>3D Modeling and Texturing</li>
+              <li>Lighting and Rendering</li>
+              <li>Interior space planning and furniture layout</li>
+              <li>Composition, color theory, and lighting design</li>
+            </ul>
+          </div>
+  
+          <div class="v-divider"></div>
+  
+          <div class="column">
+            <h2>SOFTWARES</h2>
+            <ul>
+              <li>3ds Max</li>
+              <li>Cineam 4d</li>
+              <li>Sketchup</li>
+              <li>Photoshop</li>
+              <li>VRay Render</li>
+              <li>Corona Render</li>
+              <li>Lumion</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Portfolio Section with Sliding Overlay -->
+  <section class="portfolio" id="portfolio">
+    <h2>Portfolio</h2>
+    <div class="portfolio-grid">
+      <!-- Portfolio items 1-9 will be generated by JavaScript -->
+    </div>
+  </section>
+
+  <!-- Lightbox / Modal -->
+  <div class="lightbox" id="lightbox">
+  <div class="lightbox-content">
+    <div class="lightbox-image">
+      <img id="lightbox-img" />
+    </div>
+    <div class="lightbox-details">
+      <h2 id="lightbox-title"></h2>
+      <p id="lightbox-description"></p>
+      <p><strong>Date:</strong> <span id="lightbox-date"></span></p>
+      <p><strong>Software:</strong> <span id="lightbox-software"></span></p>
+      <p><strong>Tags:</strong> <span id="lightbox-tags"></span></p>
+    </div>
+  </div>
+  <button class="lightbox-close" id="lightbox-close">✕</button>
+  <div class="lightbox-nav">
+    <button id="lightbox-prev">❮</button>
+    <button id="lightbox-next">❯</button>
+  </div>
+</div>
+
+
+  
+  <footer id="contact">
+    <div href="mailto:boatengbengy@gmail.com" class="social-icon">
+    <i class="fas fa-envelope" style="margin-bottom: 2rem;"></i>
+    boatengbengy@gmail.com
+   </div>
+    <div class="social-links">
+      <a href="https://www.facebook.com" target="_blank" class="social-icon"><i class="fab fa-facebook"></i></a>
+      <a href="https://www.instagram.com" target="_blank" class="social-icon"><i class="fab fa-instagram"></i></a>
+      <a href="https://www.linkedin.com" target="_blank" class="social-icon"><i class="fab fa-linkedin"></i></a>
+      <a href="https://www.twitter.com" target="_blank" class="social-icon"><i class="fab fa-twitter"></i></a>
+    </div>
+     <p>© 2025 Benjamin Boateng. All rights reserved.</p>
+    
+  </footer>
+  
+  <script>
+  // Set hero background image
+  async function setHeroBackground() {
+    try {
+      const heroSection = document.querySelector('.hero');
+      const imageData = await window.fs.readFile('0_5.jpg');
+      const blob = new Blob([imageData], { type: 'image/jpeg' });
+      const imageUrl = URL.createObjectURL(blob);
+      heroSection.style.backgroundImage = `url(${imageUrl})`;
+    } catch (error) {
+      console.error('Error loading hero image:', error);
+      document.querySelector('.hero').style.backgroundImage = "url('images/hero_background_r.png')";
+    }
+  }
+  setHeroBackground();
+
+  // Mobile menu toggle
+  const hamburger = document.getElementById('hamburger');
+  const navLinks = document.getElementById('nav-links');
+  hamburger.addEventListener('click', () => {
+    navLinks.classList.toggle('active');
+  });
+  document.querySelectorAll('nav ul li a').forEach(link => {
+    link.addEventListener('click', () => {
+      navLinks.classList.remove('active');
+    });
+  });
+
+  // Portfolio & Lightbox
+  const portfolioGrid = document.querySelector('.portfolio-grid');
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = document.getElementById('lightbox-img');
+  const lightboxTitle = document.getElementById('lightbox-title');
+  const lightboxDescription = document.getElementById('lightbox-description');
+  const lightboxDate = document.getElementById('lightbox-date');
+  const lightboxSoftware = document.getElementById('lightbox-software');
+  const lightboxTags = document.getElementById('lightbox-tags');
+  const lightboxClose = document.getElementById('lightbox-close');
+  const lightboxPrev = document.getElementById('lightbox-prev');
+  const lightboxNext = document.getElementById('lightbox-next');
+
+  const portfolioItems = [
+    {
+      image: 'images/Portfolio/Ha_Kitchen_WideView.jpg',
+      title: 'Kitchen Design',
+      description: 'A modern kitchen design project showcasing sleek cabinetry and innovative storage solutions.',
+      software: 'Sketchup, Cinema 4D, Photoshop',
+      tags: '#Interior #Design #3D'
+    },
+    {
+      image: 'images/Portfolio/Hi_BedRoom_WideView.jpg',
+      title: 'Bedroom Design',
+      description: 'A cozy bedroom design project with a focus on comfort and relaxation.',
+      software: 'Sketchup, Cinema 4D, Photoshop',
+      tags: '#Bedroom #Bed #3D'
+    },
+    {
+      image: 'images/Portfolio/Ma_Walk-in-Closet_WideView.jpg',
+      title: 'Walk-In-Closet',
+      description: 'A spacious walk-in closet design featuring custom shelving and elegant lighting.',
+      software: 'Sketchup, Cinema 4D, Photoshop',
+      tags: '#Walk-in Closet #Wardrobe design #Closet'
+    },
+    {
+      image: 'images/Portfolio/AL_BedRoom_WideView.jpg',
+      title: 'Luxury Bedroom',
+      description: 'A luxury bedroom design with high-end finishes and a serene atmosphere.',
+      software: 'Sketchup, Cinema 4D, Photoshop',
+      tags: '#Bedroom #Bed #3D'
+    },
+    {
+      image: 'images/Portfolio/Hi_SeatArea_WideView.jpg',
+      title: 'Seating Area and tv Unit',
+      description: 'A stylish seating area with a modern TV unit, perfect for relaxation and entertainment.',
+      software: 'Sketchup, Cinema 4D, Photoshop', 
+      tags: '#Seating Area #TV Unit #Interior'
+    },
+    {
+      image: 'images/Portfolio/Fr_Kitchen_WideView.jpg',
+      title: 'Modern Kitchen',
+      description: 'A modern kitchen design featuring sleek cabinetry and innovative storage solutions.',
+      // date: '2024',
+      software: 'Sketchup, Cinema 4D, Photoshop',
+      tags: '#Interior #Design #Kitchen'
+    },
+    {
+      image: 'images/Portfolio/Hi_BathRoom_WideView.jpg',
+      title: 'Bathroom Design', 
+      description: 'A contemporary bathroom design with elegant fixtures and a relaxing ambiance.',
+      // date: 'June 2024',  
+      software: 'Sketchup, Cinema 4D, Photoshop',
+      tags: '#Bathroom #Interior #Design'
+    },
+    {
+      image: 'images/Portfolio/Ow_Pharmacy_WideView.jpg',
+      title: 'Pharmacy Interior', 
+      description: 'A modern pharmacy interior design focusing on customer experience and product display.',
+      // date: 'May 2024',
+      software: 'Sketchup, Cinema 4D, Photoshop',
+      tags: '#Interior #Pharmacy #Design'
+    },
+    {
+      image: 'images/Portfolio/Ow_House_WideView.jpg',
+      title: 'Residential House',
+      description: 'A residential house design project showcasing modern architecture and functional spaces.',
+      // date: 'April 2024',
+      software: 'Sketchup, Lumion, Photoshop',   
+      tags: '#Architecture #Residential #Design'
+    }
+  ];
+
+  portfolioItems.forEach((item, index) => {
+    const portfolioItem = document.createElement('div');
+    portfolioItem.className = 'portfolio-item';
+    portfolioItem.innerHTML = `
+      <img src="${item.image}" alt="${item.title}">
+      <div class="overlay">
+        <h3>${item.title}</h3>
+        <p>${item.description}</p>
+        <div class="meta">${item.date || ''} | ${item.software}</div>
+        <div class="overlay-icons">
+          <i class="fas fa-search-plus"></i>
+        </div>
+      </div>
+    `;
+    portfolioItem.addEventListener('click', () => openLightbox(index));
+    portfolioGrid.appendChild(portfolioItem);
+  });
+
+  let currentLightboxIndex = 0;
+
+  function openLightbox(index) {
+    currentLightboxIndex = index;
+    const item = portfolioItems[index];
+    lightboxImg.src = item.image;
+    lightboxTitle.textContent = item.title;
+    lightboxDescription.textContent = item.description;
+    lightboxDate.textContent = item.date || '';
+    lightboxSoftware.textContent = item.software;
+    lightboxTags.textContent = item.tags;
+
+    lightbox.classList.add('active');
+    document.body.style.overflow = 'hidden';
+
+    // Push state for back button handling
+    if (!history.state || !history.state.lightboxOpen) {
+      history.pushState({ lightboxOpen: true }, '', '#lightbox');
+    }
+  }
+
+  function closeLightbox() {
+    lightbox.classList.remove('active');
+    document.body.style.overflow = '';
+
+    // Handle back button clean up
+    if (history.state && history.state.lightboxOpen) {
+      history.back();
+    }
+  }
+
+  function prevLightboxItem() {
+    currentLightboxIndex = (currentLightboxIndex - 1 + portfolioItems.length) % portfolioItems.length;
+    openLightbox(currentLightboxIndex);
+  }
+
+  function nextLightboxItem() {
+    currentLightboxIndex = (currentLightboxIndex + 1) % portfolioItems.length;
+    openLightbox(currentLightboxIndex);
+  }
+
+  lightboxClose.addEventListener('click', closeLightbox);
+  lightboxPrev.addEventListener('click', prevLightboxItem);
+  lightboxNext.addEventListener('click', nextLightboxItem);
+
+  lightbox.addEventListener('click', (e) => {
+    if (e.target === lightbox) closeLightbox();
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (!lightbox.classList.contains('active')) return;
+    if (e.key === 'Escape') closeLightbox();
+    if (e.key === 'ArrowLeft') prevLightboxItem();
+    if (e.key === 'ArrowRight') nextLightboxItem();
+  });
+
+  // ⬅️ Back button handling
+  window.addEventListener('popstate', (event) => {
+    if (lightbox.classList.contains('active')) {
+      lightbox.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+  });
+
+  // Smooth scrolling
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      e.preventDefault();
+      const target = document.querySelector(this.getAttribute('href'));
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  });
+</script>
+
+</body>
+</html>
